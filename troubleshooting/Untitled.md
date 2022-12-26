@@ -1,0 +1,38 @@
+# resource
+
+- ps
+  - 현재 실행중인 프로세스 목록과 상태
+- ps aux
+  - 시스템에 동작둥인 모든 프로세스를 소유자 정보와 함께
+  - **D** Uninterruptible sleep (usually IO)
+  - **R** Running or runnable (on run queue)
+  - **S** Interruptible sleep (waiting for an event to complete)
+  - **T** Stopped, either by a job control signal or because it is being traced.
+  - **W** paging (not valid since the 2.6.xx kernel)
+  - **X** dead (should never be seen)
+  - **Z** Defunct ("zombie") process, terminated but not reaped by its parent.
+- top
+  - ps는 ps한 시점에 proc에서 검색한 cpu 사용량
+  - top은 proc에서 일정 주기로 합산해 cpu 사용율 출력
+- sar
+  - 디스크 IO 모니터링
+  - 시스템의 리소스 사용 이력을 모니터링하고 파일에 저장
+  - -A 모든 정보
+  - -b IO
+  - -x 프록시
+  - -n 네트워크
+- free
+  - 메모리 사용량,여유량 파악 가능
+  - meminfo의 내용을 읽어와 보여줌
+- lsof
+  - 시스템에서 동작하고 있는 모든 프로세스에 의해 열려진 파일에 대한 정보를 보여주는 시스템 관리 명령어
+  - -i 설정한 네트워크 소켓에 대한 정보 출력
+    - 4,6 설정 가능
+  - -u id,UID 값으로 지정 가능
+  - -c 특정한 명령어나 프로그램이 참조하고 있는 파일의 목록 출력
+    - ex) lsof -c firewalld (방화벽 데몬과 연결된 프로세스 확인)
+  - -P port number 출력
+  - -r 실행 주기 설정
+  - -N NFS로 연결된 파일 정보
+- iostat
+  - 디스크 입출력에 대한 통계정보를 측정할 수 있는 명령어
